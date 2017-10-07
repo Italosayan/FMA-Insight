@@ -1,16 +1,19 @@
 {
-	"name" : "Market",
+	"name" : "FMA Portfolio",
+	"sign":"positive",
 	"children" :[
 	{
 		"name": "Technology",
+		"sign":"positive",
 		"children":[
-			{"name":"Google", "value":200},
-			{"name":"Facebook", "value":100},
-			{"name":"Amazon","value": 50}
+			{"name":"Google", "value":200, "sign":"positive"},
+			{"name":"Facebook", "value":100,"sign":"positive"},
+			{"name":"Amazon","value": 50,"sign":"negative"}
 		]
 	},
 	{
 		"name":"HealthCare",
+		"sign":"positive",
 		"value":200	
 	}
 ]

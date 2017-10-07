@@ -2,7 +2,6 @@ function CreateViz() {
 
 	//Import data
 	d3.json("fma.json", function(data){
-		console.log(data)
 		Viz(data);
 	})
 
@@ -26,18 +25,22 @@ function Viz(incomingdata){
 	.data(rootNode.descendants())
 	.enter()
 	.append('g')
-	.attr('transform', function(d){console.log([d.x0, d.y0]);return 'translate('+ [d.x0, d.y0] + ')'})
+	.attr('transform', function(d){return 'translate('+ [d.x0, d.y0] + ')'})
 
 	nodes
 	.append('rect')
-	.attr('width', function(d) { return d.x1 - d.x0; })
+	.attr('width', function(d) {return d.x1 - d.x0; })
 	.attr('height', function(d) { return d.y1 - d.y0; })
+	.attr('fill', function(d){
+		var returncolor; 
+		(d.data.sign == "positive")? returncolor="cadetblue":returncolor="red";
+		return returncolor});
 
 	nodes
 	.append('text')
 	.attr('dx', 4)
 	.attr('dy', 14)
-	.text(function(d) { return d.data.name;})
+	 	.text(function(d) { return d.data.name;})
 
 
 }
